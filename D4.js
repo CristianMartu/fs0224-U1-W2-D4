@@ -156,8 +156,10 @@ console.log(cutString('nEPICODEn'))
 const giveMeRandom = function (n) {
   const array = []
   for (let i = 0; i < n; i++) {
-    array.push(Math.ceil(Math.random() * 10))
+    array.push(Math.floor(Math.random() * 11))
   }
   return array
 }
-console.log(giveMeRandom(10))
+
+const random = giveMeRandom(10)
+console.log(random)

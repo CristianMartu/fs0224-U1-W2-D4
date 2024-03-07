@@ -218,7 +218,8 @@ const matrixGenerator = function (x, y) {
     for (let n = 0; n <= y; n++) {
       const number = []
       number.push(i, n)
-      matrix.push(number)
+      let stringa = "['" + number.join('') + "']"
+      matrix.push(stringa)
     }
   }
   return matrix

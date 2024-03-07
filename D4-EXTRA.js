@@ -135,12 +135,38 @@ Crea una funzione chiamata "average" che riceve un array come parametro e ne rit
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+const average = function (array) {
+  let sum = 0
+  let number = 0
+  for (let i = 0; i < array.length; i++) {
+    if (typeof array[i] === 'number') {
+      sum += array[i]
+      number += 1
+    }
+  }
+  return sum / number
+}
+const array = [10, 10, 'vae', 4]
+console.log(average(array))
 
 /* EXTRA 8
  Crea una funzione chiamata "longest" che trova la stringa più lunga all'interno di un array di stringhe fornito come parametro.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+const longest = function (array) {
+  let max = 0
+  let pos = 0
+  for (let i = 0; i < array.length; i++) {
+    if (max < array[i].length) {
+      max = array[i].length
+      pos = i
+    }
+  }
+  return array[pos]
+}
+const newArray = ['Caio', 'epicoder', 'supercalifragilistiche', 'studente']
+console.log(longest(newArray))
 
 /* EXTRA 9
  Crea una funzione per creare un filtro anti-spam per la tua casella email. La funzione riceve un parametro stringa chiamato "emailContent", e torna un valore booleano.
@@ -148,12 +174,34 @@ Crea una funzione chiamata "average" che riceve un array come parametro e ne rit
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+const antiSpam = function (string) {
+  const list = string.split(' ')
+  for (let i = 0; i < list.length; i++) {
+    if (list[i] === 'SPAM' || list[i] === 'SCAM') {
+      return false
+    }
+  }
+  return true
+}
+const emailContent = 'SPAMprovaSCAM'
+console.log(antiSpam(emailContent))
 
 /* EXTRA 10
  Scrivi una funzione che riceve una data come parametro, e calcola il numero di giorni passati da quella data.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+const giorniPassati = function (data) {
+  let oggi = new Date()
+  let dataInserita = new Date(data)
+  let differenza = oggi - dataInserita
+  let giorniPassati = Math.floor(differenza / (1000 * 60 * 60 * 24))
+  return giorniPassati
+}
+
+// Utilizzo della funzione
+let dataInserita = new Date('2024-03-01')
+console.log('Giorni passati:', giorniPassati(dataInserita))
 
 /* EXTRA 11
  Scrivi una funzione chiamata "matrixGenerator" che riceve come parametri due numeri interi, "x" e "y".
@@ -164,3 +212,15 @@ Crea una funzione chiamata "average" che riceve un array come parametro e ne rit
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+const matrixGenerator = function (x, y) {
+  const matrix = []
+  for (let i = 0; i < x - 1; i++) {
+    for (let n = 0; n <= y; n++) {
+      const number = []
+      number.push(i, n)
+      matrix.push(number)
+    }
+  }
+  return matrix
+}
+console.log(matrixGenerator(3, 2))
